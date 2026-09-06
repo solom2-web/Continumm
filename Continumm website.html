@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continumm — Booked Appointments for Septic Contractors, Paid Per Show</title>
+<meta name="description" content="We run the ads, the conversations, and the booking. You pay only for appointments that actually show up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --soil: #241F1A;
+    --soil-deep: #1A1613;
+    --limestone: #F4EFE6;
+    --limestone-dim: #C9C0AF;
+    --clay: #8A6D4E;
+    --clay-light: #A9876259;
+    --field-green: #4E6E5D;
+    --brass: #C9A15C;
+    --line: #4A4237;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--soil);
+    color:var(--limestone);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Roboto Slab', serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+
+  a{ color:inherit; }
+
+  .wrap{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    padding:28px 0;
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .brand{
+    font-family:'Roboto Slab', serif;
+    font-weight:700;
+    font-size:1.15rem;
+    letter-spacing:0.01em;
+  }
+  .brand span{ color:var(--brass); }
+  header nav a{
+    text-decoration:none;
+    color:var(--limestone-dim);
+    font-size:0.92rem;
+    margin-left:28px;
+    transition:color 0.2s ease;
+  }
+  header nav a:hover{ color:var(--limestone); }
+  header nav a:focus-visible{ outline:2px solid var(--brass); outline-offset:4px; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:96px 0 80px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{ position:relative; z-index:2; }
+  .eyebrow{
+    display:inline-block;
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--field-green);
+    background:#4E6E5D1f;
+    border:1px solid #4E6E5D55;
+    padding:6px 14px;
+    border-radius:2px;
+    margin-bottom:28px;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 5vw, 3.4rem);
+    line-height:1.12;
+    max-width:820px;
+    color:var(--limestone);
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--brass);
+  }
+  .hero p.lede{
+    margin-top:26px;
+    font-size:1.15rem;
+    color:var(--limestone-dim);
+    max-width:560px;
+  }
+  .hero-ctas{
+    margin-top:38px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600;
+    font-size:0.98rem;
+    text-decoration:none;
+    border-radius:3px;
+    transition:transform 0.15s ease, background 0.2s ease;
+  }
+  .btn:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
+  .btn-primary{
+    background:var(--brass);
+    color:var(--soil-deep);
+  }
+  .btn-primary:hover{ background:#dbb571; transform:translateY(-1px); }
+  .btn-secondary{
+    border:1px solid var(--line);
+    color:var(--limestone);
+  }
+  .btn-secondary:hover{ border-color:var(--limestone-dim); }
+
+  .hero-note{
+    margin-top:22px;
+    font-size:0.85rem;
+    color:var(--limestone-dim);
+    opacity:0.75;
+  }
+
+  /* background pipe motif */
+  .pipe-bg{
+    position:absolute;
+    top:0; right:-8%;
+    width:640px;
+    height:100%;
+    opacity:0.35;
+    z-index:1;
+    pointer-events:none;
+  }
+
+  /* ---------- Flow / how it works ---------- */
+  .flow{
+    padding:72px 0 88px;
+    border-top:1px solid var(--line);
+  }
+  .section-label{
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--clay);
+    margin-bottom:14px;
+  }
+  .flow h2{
+    font-size:clamp(1.5rem, 3vw, 2rem);
+    max-width:600px;
+    margin-bottom:52px;
+  }
+
+  .pipeline{
+    position:relative;
+  }
+  .pipeline-line{
+    position:absolute;
+    top:26px;
+    left:0;
+    right:0;
+    height:2px;
+    background:linear-gradient(90deg, var(--field-green), var(--brass) 50%, var(--field-green));
+    opacity:0.5;
+  }
+  .pipeline-steps{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:16px;
+    position:relative;
+  }
+  .step{
+    position:relative;
+  }
+  .step-dot{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:var(--soil);
+    border:2px solid var(--brass);
+    margin-bottom:20px;
+    position:relative;
+    z-index:2;
+  }
+  .step h3{
+    font-size:1rem;
+    font-weight:600;
+    font-family:'IBM Plex Sans', sans-serif;
+    color:var(--limestone);
+    margin-bottom:8px;
+  }
+  .step p{
+    font-size:0.88rem;
+    color:var(--limestone-dim);
+  }
+  .step.pay .step-dot{
+    background:var(--brass);
+    box-shadow:0 0 0 4px #C9A15C22;
+  }
+  .step.pay h3{ color:var(--brass); }
+
+  /* ---------- Model ---------- */
+  .model{
+    padding:80px 0;
+    background:var(--soil-deep);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .model-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .model h2{
+    font-size:clamp(1.5rem, 3vw, 2rem);
+    margin-bottom:20px;
+    max-width:420px;
+  }
+  .model p{
+    color:var(--limestone-dim);
+    max-width:440px;
+  }
+  .model-cards{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .model-card{
+    border:1px solid var(--line);
+    border-left:3px solid var(--field-green);
+    padding:20px 22px;
+    border-radius:2px;
+    background:#2B251F;
+  }
+  .model-card.highlight{
+    border-left-color:var(--brass);
+  }
+  .model-card h4{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600;
+    font-size:0.98rem;
+    margin-bottom:6px;
+  }
+  .model-card p{
+    font-size:0.9rem;
+    color:var(--limestone-dim);
+    max-width:none;
+  }
+
+  /* ---------- Trust ---------- */
+  .trust{
+    padding:80px 0;
+  }
+  .trust h2{
+    font-size:clamp(1.5rem, 3vw, 2rem);
+    max-width:640px;
+    margin-bottom:16px;
+  }
+  .trust > .wrap > p{
+    color:var(--limestone-dim);
+    max-width:600px;
+    margin-bottom:48px;
+  }
+  .trust-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  .trust-item{
+    padding:24px;
+    background:#2B251F;
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  .trust-item .num{
+    font-family:'Roboto Slab', serif;
+    font-size:1.7rem;
+    color:var(--field-green);
+    margin-bottom:10px;
+  }
+  .trust-item h4{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:0.95rem;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .trust-item p{
+    font-size:0.88rem;
+    color:var(--limestone-dim);
+  }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    padding:88px 0;
+    border-top:1px solid var(--line);
+    text-align:center;
+  }
+  .cta-band h2{
+    font-size:clamp(1.7rem, 4vw, 2.4rem);
+    max-width:640px;
+    margin:0 auto 20px;
+  }
+  .cta-band p{
+    color:var(--limestone-dim);
+    max-width:480px;
+    margin:0 auto 36px;
+  }
+
+  /* ---------- Legal sections ---------- */
+  .legal{
+    padding:64px 0;
+    border-top:1px solid var(--line);
+  }
+  .legal h2{
+    font-size:clamp(1.3rem, 2.6vw, 1.7rem);
+    max-width:600px;
+    margin-bottom:14px;
+  }
+  .legal > .wrap > p.intro{
+    color:var(--limestone-dim);
+    max-width:600px;
+    margin-bottom:36px;
+    font-size:0.95rem;
+  }
+  .legal-block{
+    max-width:720px;
+    margin-bottom:26px;
+  }
+  .legal-block:last-child{ margin-bottom:0; }
+  .legal-block h4{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600;
+    font-size:0.98rem;
+    color:var(--limestone);
+    margin-bottom:8px;
+  }
+  .legal-block p{
+    font-size:0.9rem;
+    color:var(--limestone-dim);
+    line-height:1.7;
+  }
+  .legal-block a{
+    color:var(--brass);
+    text-decoration:underline;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:36px 0;
+    border-top:1px solid var(--line);
+  }
+  footer .wrap{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  footer .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  footer .footer-links{
+    display:flex;
+    gap:20px;
+  }
+  footer .footer-links a{
+    font-size:0.82rem;
+    color:var(--limestone-dim);
+    text-decoration:underline;
+    opacity:0.85;
+  }
+  footer .footer-links a:hover{ opacity:1; color:var(--limestone); }
+  footer p{
+    font-size:0.82rem;
+    color:var(--limestone-dim);
+    opacity:0.7;
+  }
+  footer .legal-id{
+    opacity:0.6;
+    font-size:0.78rem;
+  }
+  footer .copyright{
+    opacity:0.5;
+    font-size:0.76rem;
+    border-top:1px solid var(--line);
+    padding-top:14px;
+    margin-top:4px;
+  }
+
+  @media (max-width: 760px){
+    .pipeline-steps{ grid-template-columns:1fr; gap:28px; }
+    .pipeline-line{ display:none; }
+    .model-grid{ grid-template-columns:1fr; gap:36px; }
+    .trust-grid{ grid-template-columns:1fr; }
+    header nav{ display:none; }
+    .pipe-bg{ display:none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Continumm<span>.</span></div>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#model">The model</a>
+      <a href="#contact">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="pipe-bg" viewBox="0 0 640 700" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M 700 40 C 500 40, 480 160, 380 180 C 280 200, 260 320, 340 380 C 420 440, 400 560, 300 600 C 220 632, 200 700, 200 700" stroke="#4E6E5D" stroke-width="2"/>
+    <circle cx="700" cy="40" r="4" fill="#C9A15C"/>
+    <circle cx="380" cy="180" r="4" fill="#C9A15C"/>
+    <circle cx="340" cy="380" r="4" fill="#C9A15C"/>
+    <circle cx="300" cy="600" r="4" fill="#C9A15C"/>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">Rural Florida · Septic &amp; Well Contractors</span>
+    <h1>Booked repair calls, <em>not just leads</em> — <br>you only pay when they show up.</h1>
+    <p class="lede">We run the Facebook &amp; Instagram ads, handle the DM conversation, and put a qualified homeowner on your calendar. No monthly retainer. No paying for no-shows.</p>
+    <div class="hero-ctas">
+      <a href="https://calendly.com/solomoncuratu2/15-minute-meeting" target="_blank" rel="noopener" class="btn btn-primary">Book a 15-minute call</a>
+      <a href="#how" class="btn btn-secondary">See how it works</a>
+    </div>
+    <p class="hero-note">Currently onboarding a limited number of septic &amp; well contractors in Florida.</p>
+  </div>
+</section>
+
+<section class="flow" id="how">
+  <div class="wrap">
+    <p class="section-label">How it works</p>
+    <h2>One system, from ad to appointment — you only pay at the last step.</h2>
+    <div class="pipeline">
+      <div class="pipeline-line"></div>
+      <div class="pipeline-steps">
+        <div class="step">
+          <div class="step-dot"></div>
+          <h3>Ad runs locally</h3>
+          <p>Targeted to homeowners in your service area — not a national audience.</p>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <h3>They message in</h3>
+          <p>A homeowner with a real septic problem starts a conversation, not a form fill.</p>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <h3>We qualify &amp; book</h3>
+          <p>Basic details confirmed, timeframe checked, appointment set on your calendar.</p>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <h3>Reminders sent</h3>
+          <p>Automated follow-up to keep the show-rate high before the appointment time.</p>
+        </div>
+        <div class="step pay">
+          <div class="step-dot"></div>
+          <h3>You pay on show</h3>
+          <p>Card on file charges only once the appointment actually happens.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="model" id="model">
+  <div class="wrap">
+    <div class="model-grid">
+      <div>
+        <p class="section-label">The model</p>
+        <h2>Paid Per Shown Appointment</h2>
+        <p>Most marketers sell you a lead — a name and number that may never pick up. We sell you a kept appointment. If the homeowner doesn't show, you don't pay for that slot. It's the closest thing to aligned incentives you'll find in local ads.</p>
+      </div>
+      <div class="model-cards">
+        <div class="model-card highlight">
+          <h4>You pay for a show, not a click</h4>
+          <p>Charged automatically when the appointment happens — nothing charged for no-shows, only a credit toward a future slot.</p>
+        </div>
+        <div class="model-card">
+          <h4>No retainer, no setup fee</h4>
+          <p>You're not funding our learning curve. The ad spend and our time are our risk to manage.</p>
+        </div>
+        <div class="model-card">
+          <h4>You stay in control</h4>
+          <p>You set your service area, your price range, and your availability. We fill the calendar around it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <p class="section-label">Why septic homeowners respond</p>
+    <h2>The trust gap in this industry is real — and it's the angle that works.</h2>
+    <p>Homeowners searching for septic help are often anxious about being overcharged or misled. Our ad copy leads with the two things that matter most to them.</p>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="num">01</div>
+        <h4>Transparent pricing</h4>
+        <p>Clear, upfront ranges instead of "call for a quote" — the thing most competitors won't offer.</p>
+      </div>
+      <div class="trust-item">
+        <div class="num">02</div>
+        <h4>Licensed &amp; insured messaging</h4>
+        <p>Directly addresses the fear of hiring an unlicensed contractor, a documented concern in this market.</p>
+      </div>
+      <div class="trust-item">
+        <div class="num">03</div>
+        <h4>No pressure, no duress</h4>
+        <p>Positioned against the high-pressure sales tactics homeowners have come to expect and avoid.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <h2>Want to see what your calendar could look like?</h2>
+    <p>15 minutes. No pitch deck — just your service area, your capacity, and whether this is a fit.</p>
+    <a href="https://calendly.com/solomoncuratu2/15-minute-meeting" target="_blank" rel="noopener" class="btn btn-primary">Book a 15-minute call</a>
+  </div>
+</section>
+
+<section class="legal" id="policy">
+  <div class="wrap">
+    <p class="section-label">Policies</p>
+    <h2>No-Show &amp; Payment Policy</h2>
+    <p class="intro">Continumm books appointments for septic and well contractors under a simple, aligned-incentive model. Here's exactly how billing and no-shows work.</p>
+
+    <div class="legal-block">
+      <h4>The Paid Per Shown Appointment model</h4>
+      <p>You're charged a per-appointment fee only when a scheduled appointment is attended by the homeowner — meaning the contractor arrives at the property at the agreed time and the homeowner is present.</p>
+    </div>
+    <div class="legal-block">
+      <h4>Card on file</h4>
+      <p>By working with Continumm, you authorize us to store your payment method securely via Stripe and automatically charge the agreed per-appointment fee once a show is confirmed.</p>
+    </div>
+    <div class="legal-block">
+      <h4>No-show handling</h4>
+      <p>If the homeowner doesn't show, you're not charged for that appointment. Instead, a credit is applied toward a future replacement appointment. Credits don't expire while your engagement with Continumm is active.</p>
+    </div>
+    <div class="legal-block">
+      <h4>Disputes</h4>
+      <p>If you believe a charge is incorrect, let us know within 7 days of the charge so we can review it. Good-faith errors are refunded in full.</p>
+    </div>
+    <div class="legal-block">
+      <h4>Ending the engagement</h4>
+      <p>Either party can end the engagement with 7 days' notice. Any pending credits are honored during that notice period.</p>
+    </div>
+  </div>
+</section>
+
+<section class="legal" id="terms">
+  <div class="wrap">
+    <p class="section-label">Legal</p>
+    <h2>Terms of Service</h2>
+    <p class="intro">The terms below cover how Continumm works with contractor clients — plain language, no fine print games.</p>
+
+    <div class="legal-block">
+      <h4>What Continumm does</h4>
+      <p>Continumm provides marketing and appointment-setting services for septic and well contractors. We do not perform, guarantee, or warrant the underlying septic or well work carried out by the contractor client.</p>
+    </div>
+    <div class="legal-block">
+      <h4>No guaranteed outcomes</h4>
+      <p>We don't guarantee a specific number of appointments, a close rate, or a revenue figure. What we commit to is running campaigns and the booking process in good faith.</p>
+    </div>
+    <div class="legal-block">
+      <h4>Your responsibilities as a client</h4>
+      <p>You're responsible for complying with all local licensing, permit, and consumer-protection laws relevant to your trade; honoring appointments booked on your behalf; and handling any disputes that arise with homeowners over work performed.</p>
+    </div>
+    <div class="legal-block">
+      <h4>Limitation of liability</h4>
+      <p>Continumm isn't liable for indirect, incidental, or consequential damages arising from campaign performance or missed appointments. Total liability is limited to fees paid in the prior 30 days.</p>
+    </div>
+    <div class="legal-block">
+      <h4>Governing law</h4>
+      <p>These terms are governed by the laws of Austria. Any disputes are resolved under Austrian jurisdiction.</p>
+    </div>
+    <div class="legal-block">
+      <h4>Changes to these terms</h4>
+      <p>Continumm may update these terms over time. Material changes will be emailed to active clients at least 14 days before they take effect.</p>
+    </div>
+    <div class="legal-block">
+      <h4>Questions</h4>
+      <p>For legal questions, reach out to <a href="mailto:solomon@continumm.eu">solomon@continumm.eu</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <p>Continumm — Appointment marketing for septic &amp; well contractors, Florida.</p>
+        <p class="legal-id">Operated by Solomon Curatu, sole proprietor (Einzelunternehmer) · Rossbachweg 4, 6341 Ebbs, Austria</p>
+        <p>solomon@continumm.eu</p>
+      </div>
+      <div class="footer-links">
+        <a href="#terms">Terms of Service</a>
+        <a href="#policy">No-Show &amp; Payment Policy</a>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Continumm. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
