@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Continumm – Exclusive HVAC Leads</title>
+<meta name="description" content="Exclusive homeowner leads for HVAC contractors, from your own service area. Fixed price per lead, never shared, invalid leads replaced.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- META PIXEL: paste your existing Meta Pixel base code here (optional, for retargeting) -->
+
+<style>
+  :root{
+    --navy:#0E1B2E; --navy-2:#13243B; --orange:#FF7A1A; --white:#FFFFFF;
+    --text:#E7ECF3; --muted:#9FB0C6; --line:rgba(255,255,255,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--navy);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:17px;line-height:1.6}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  header{border-bottom:1px solid var(--line)}
+  .nav{display:flex;justify-content:space-between;align-items:center;height:68px}
+  .logo{font-family:"Archivo Black",sans-serif;font-size:20px;letter-spacing:.06em;text-decoration:none}
+  .logo span{color:var(--orange)}
+  .btn{display:inline-block;background:var(--orange);color:#0E1B2E;font-weight:700;text-decoration:none;padding:15px 26px;border-radius:8px;transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.small{padding:10px 18px;font-size:15px}
+  .hero{padding:72px 0 64px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-180px;top:-180px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(255,122,26,.22),transparent 65%);pointer-events:none}
+  .callout{font-family:"Archivo Black",sans-serif;color:var(--orange);font-size:clamp(40px,8vw,84px);line-height:1;letter-spacing:.01em}
+  .bar{width:64px;height:6px;background:var(--orange);margin:26px 0}
+  h1{font-family:"Archivo Black",sans-serif;color:var(--white);font-size:clamp(28px,4.6vw,46px);line-height:1.15;max-width:760px}
+  .sub{font-size:19px;color:var(--text);max-width:640px;margin:20px 0 32px}
+  .sub u{text-decoration-color:var(--orange);text-decoration-thickness:3px;text-underline-offset:4px}
+  .note{color:var(--muted);font-size:15px;margin-top:14px}
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  h2{font-family:"Archivo Black",sans-serif;color:var(--white);font-size:clamp(24px,3.4vw,34px);line-height:1.2;margin-bottom:12px}
+  .lead{color:var(--muted);max-width:640px;margin-bottom:36px}
+  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .card{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:24px}
+  .card .num{font-family:"Archivo Black",sans-serif;color:var(--orange);font-size:14px;letter-spacing:.1em;margin-bottom:10px}
+  .card h3{color:var(--white);font-size:18px;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:15.5px}
+  .compare{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .compare .card ul{list-style:none;margin-top:10px}
+  .compare li{padding:7px 0 7px 30px;position:relative;font-size:16px}
+  .x li::before{content:"✕";position:absolute;left:0;color:#ff6b6b;font-weight:700}
+  .ok li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:700}
+  .ok{border-color:rgba(255,122,26,.45)}
+  .pilot{background:linear-gradient(135deg,var(--navy-2),#1a2f4b);border:2px solid var(--orange);border-radius:16px;padding:36px;display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:center}
+  .price{font-family:"Archivo Black",sans-serif;color:var(--white);font-size:58px;line-height:1}
+  .price small{font-family:Inter,sans-serif;font-size:18px;color:var(--muted);font-weight:500}
+  .pilot ul{list-style:none}
+  .pilot li{padding:8px 0 8px 30px;position:relative;border-bottom:1px solid var(--line)}
+  .pilot li:last-child{border-bottom:0}
+  .pilot li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:700}
+  ol.rules{padding-left:22px;max-width:720px}
+  ol.rules li{padding:6px 0}
+  details{background:var(--navy-2);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:12px;max-width:760px}
+  summary{cursor:pointer;color:var(--white);font-weight:600;list-style:none}
+  summary::after{content:"+";float:right;color:var(--orange);font-weight:700}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted);margin-top:10px}
+  .cta{text-align:center}
+  .cta .lead{margin:0 auto 28px}
+  footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted);font-size:14px}
+  footer .row{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+  footer a{color:var(--text)}
+  footer p{margin-top:14px;max-width:760px}
+  @media (max-width:560px){.pilot{padding:24px}.price{font-size:46px}.hero{padding:48px 0}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="/">CONTINUMM<span>.</span></a>
+    <a class="btn small" href="CALENDLY_LINK">Book a call</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div class="callout">HVAC CONTRACTORS</div>
+      <div class="bar"></div>
+      <h1>Exclusive Homeowner Leads From Your Own Service Area.</h1>
+      <p class="sub">Every lead goes to <u>your company only</u>. Fixed price per lead, invalid leads replaced, no retainer and no contract.</p>
+      <a class="btn" href="CALENDLY_LINK">See if your area is open →</a>
+      <p class="note">15-minute call · No obligation</p>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p class="lead">Simple on purpose. We bring the homeowners, you do what you do best: call them and win the job.</p>
+      <div class="grid">
+        <div class="card"><div class="num">STEP 01</div><h3>You pick the area and jobs</h3><p>Your ZIP codes and the services you want more of: repairs, service calls, tune-ups.</p></div>
+        <div class="card"><div class="num">STEP 02</div><h3>We run the ads</h3><p>Facebook and Instagram ads on your own business page, shown to homeowners in your area.</p></div>
+        <div class="card"><div class="num">STEP 03</div><h3>Leads hit your phone</h3><p>When a homeowner asks for help, you get a notification with their details right away.</p></div>
+        <div class="card"><div class="num">STEP 04</div><h3>You call and book</h3><p>You speak to the homeowner directly. The faster you call, the more jobs you win.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="difference">
+    <div class="wrap">
+      <h2>One lead. One contractor.</h2>
+      <p class="lead">Many lead sites sell the same homeowner to several companies at once. Whoever calls first wins.</p>
+      <div class="compare">
+        <div class="card x"><h3>Shared lead sites</h3><ul><li>Same homeowner sold to several contractors</li><li>You race other trucks to the phone</li><li>Leads from a marketplace, not your brand</li></ul></div>
+        <div class="card ok"><h3>Continumm</h3><ul><li>Each lead goes to one HVAC company only</li><li>Only your ZIP codes and your services</li><li>Ads run on your own page, under your name</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilot">
+    <div class="wrap">
+      <h2>Founding pilot</h2>
+      <p class="lead">We're starting with a small number of HVAC companies. Clear numbers, nothing hidden.</p>
+      <div class="pilot">
+        <div>
+          <div class="price">$60 <small>per exclusive lead</small></div>
+          <p class="note" style="margin-top:12px">20 leads · $1,200 · ad spend included</p>
+          <a class="btn" href="CALENDLY_LINK" style="margin-top:22px">Check your area →</a>
+        </div>
+        <ul>
+          <li>20 exclusive homeowner leads from your service area</li>
+          <li>Ad spend included in the price</li>
+          <li>Invalid leads replaced at no charge</li>
+          <li>Delivered within 30 days; undelivered leads refunded</li>
+          <li>No retainer, no long-term contract</li>
+        </ul>
+      </div>
+      <p class="note">In return for the founding price, we ask permission to share your anonymised results.</p>
+    </div>
+  </section>
+
+  <section id="valid">
+    <div class="wrap">
+      <h2>What counts as a valid lead</h2>
+      <p class="lead">Agreed before we start, so there are no arguments later. A valid lead is a homeowner request that:</p>
+      <ol class="rules">
+        <li>Has a real name and a phone number that reaches that person or their voicemail</li>
+        <li>Comes from a ZIP code inside your agreed service area</li>
+        <li>Asks for a service you agreed to accept</li>
+        <li>Isn't a duplicate of a lead you received in the last 30 days</li>
+        <li>Isn't spam, a test, a competitor or a job-seeker</li>
+      </ol>
+      <p class="note">Flag an invalid lead within 72 hours and we replace it.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <details><summary>Who is this for?</summary><p>HVAC companies that answer their phone, call leads back quickly and have room for more work. If you're fully booked, this isn't for you yet.</p></details>
+      <details><summary>What do I need to do?</summary><p>Give us access to run ads on your Facebook page, tell us your service area and services, and call every lead back fast, ideally within 15 minutes.</p></details>
+      <details><summary>Do you guarantee jobs?</summary><p>No. We deliver exclusive homeowner leads that meet the agreed rules. Turning them into jobs depends on how quickly you call and how you sell.</p></details>
+      <details><summary>How fast can we start?</summary><p>Usually within 72 hours of receiving page access, your service area and payment. Meta's ad review can occasionally add time.</p></details>
+      <details><summary>Is there a contract?</summary><p>No long-term contract. You buy a lead package. If it works for you, you buy another.</p></details>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Is your area still open?</h2>
+      <p class="lead">Book a 15-minute call. We'll check your service area and walk you through the pilot.</p>
+      <a class="btn" href="CALENDLY_LINK">Book a 15-minute call →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <div><strong style="color:#fff">CONTINUMM</strong> · Lead generation for HVAC contractors</div>
+      <div><a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a> · <a href="/privacy.html">Privacy Policy &amp; Imprint</a></div>
+    </div>
+    <p>This site is not part of the Facebook website or Meta Platforms, Inc. Additionally, this site is not endorsed by Facebook in any way. Facebook is a trademark of Meta Platforms, Inc.</p>
+  </div>
+</footer>
+
+</body>
+</html>
